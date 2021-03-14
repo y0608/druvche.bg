@@ -1,0 +1,22 @@
+.table{
+    border-spacing: 0;
+    margin: 1rem;
+    font-size: large;
+    background-color: #008A5C;
+    color: white;
+    border-radius: 10px;
+    width: 60%;
+}
+.table__row:nth-child(evem){
+    background-color: white;
+}
+.table__header {
+    text-align: left;
+}
+.table__cell{
+    padding: 8px;
+}
+.container{
+    display: flex;
+    justify-content: center;
+}

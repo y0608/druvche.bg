@@ -1,0 +1,54 @@
+{% extends "base.html" %}
+{% block head %}
+<link rel="stylesheet" href="{{ url_for('static', filename='styles/login.css') }}">
+{% endblock %}
+{% block body %}
+    <form method="POST" action="" style="width: 80%;">
+        {{ form.hidden_tag() }}
+        <legend>Вход</legend>
+        <legend id="home_legend"><a href="{{ url_for('home') }}" style="text-decoration: none; color: white;">Начало</a></legend>
+        <div class="info_container">
+            <div>
+                {{ form.email.label(class="form-control-label") }}
+                {% if form.email.errors %}
+                    {{ form.email(class="form-control") }}
+                    <div>
+                        {% for error in form.email.errors %}
+                            <span>{{ error }}</span>
+                        {% endfor %}
+                    </div>
+                {% else %}
+                    {{ form.email(class="form-control") }}
+                {% endif %}
+            </div>
+            <div>
+                {{ form.password.label(class="form-control-label") }}
+                {% if form.password.errors %}
+                    {{ form.password(class="form-control") }}
+                    <div>
+                        {% for error in form.password.errors %}
+                            <span>{{ error }}</span>
+                        {% endfor %}
+                    </div>
+                {% else %}
+                    {{ form.password(class="form-control") }}
+                {% endif %}
+            </div>
+            <div>
+                {{ form.remember() }}
+                {{ form.remember.label() }}
+            </div>
+            <div style="width: 100%;">
+                {{ form.submit(class="btn") }}
+            </div>
+            <small>
+                <a href="{{ url_for('reset_request') }}">Забравена парола?</a>
+            </small>
+            <div>
+                <small>
+                    Нямате акаунт? <a class="ml-2" href="{{ url_for('register') }}">Направи акаунт</a>
+                </small>
+            </div>
+        </div>
+    </form>
+{% endblock %}

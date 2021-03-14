@@ -1,0 +1,25 @@
+{% extends 'base.html' %}
+
+{% block head %}
+<link rel="stylesheet" href="{{ url_for('static', filename='styles/mainpage.css') }}">
+{% endblock %}
+
+{% block body %}
+<nav style="z-index: 100;">
+    <h1>Добави своето дръвче</h1>
+     <input id="toggle" type="checkbox" checked>
+  <ul>
+    <li><a href="{{ url_for( 'home' )}}">Начало</a></li>
+    <li><a href="{{ url_for( 'scoreboard' )}}">Класация</a></li>
+    <li><a href="#">Моите дръвчета</a></li>
+    <li><a href="{{ url_for( 'login' ) }}">Моят Акаунт</a></li>
+  </ul>
+</nav>
+<form method = "POST" action="/upload_sapling" enctype="multipart/form-data" style="margin-top: 10%;">
+  <label for="img" style="font-size: xx-large;">Качи снимка:</label>
+  <input type="file" id="img" name="img1" accept="image/png, image/jpeg" required>
+  <input class="coords" id="coord_X" placeholder="Географска ширина" name="coordsx" required>
+  <input class="coords" id="coord_Y" placeholder="Геогравска дължина" name="coordsy" required>
+  <input type="submit" value="Добави дръвче" style="font-size:xx-large; box-shadow: 2px 2px 10px -2px rgba(0,0,0,.35);">
+</form>
+{% endblock %}

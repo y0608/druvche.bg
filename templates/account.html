@@ -1,0 +1,77 @@
+{% block head %}
+<meta charset="UTF-8">
+<meta http-equiv="X-UA-Compatible" content="IE=edge">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<link href="https://fonts.googleapis.com/css2?family=Poiret+One&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="{{ url_for('static', filename='styles/mainpage.css') }}">
+{% endblock %}
+{% block content %}
+    <nav style="z-index: 1000; font-size: x-large;">
+        <h1>Моят акаунт</h1>
+        <input id="toggle" type="checkbox" checked>
+        <ul>
+            <li><a href="{{ url_for( 'home' ) }}">Начало</a></li>
+            <li><a href="{{ url_for( 'add_sapling' ) }}">Добави своето дръвче</a></li>
+            <li><a href="{{ url_for( 'scoreboard' ) }}">Класация</a></li>
+            <li><a href="{{ url_for( 'my_trees' ) }}">Моите дръвчета</a></li>
+        </ul>
+    </nav>
+    <div class="profile_container">
+        <div class="content-section">
+           <div class="media"> 
+            <img id="profile_pic" class="rounded-circle account-img" src="{{ image_file }}">
+            <div class="media-body">
+              <h2 class="account-heading" style="text-align:center">{{ current_user.username }}</h2>
+              <p class="text-secondary" style="text-align: center;">{{ current_user.email }}</p>
+            </div>
+          </div>
+            <form method="POST" action="" enctype="multipart/form-data">
+                {{ form.hidden_tag() }}
+                <fieldset class="form-group">
+                    <legend class="border-bottom mb-4">Редактирай акаунт</legend>
+                    <div class="form-group">
+                        {{ form.username.label(class="form-control-label") }}
+                        {% if form.username.errors %}
+                            {{ form.username(class="form-control form-control-lg is-invalid") }}
+                            <div class="invalid-feedback">
+                                {% for error in form.username.errors %}
+                                    <span>{{ error }}</span>
+                                {% endfor %}
+                            </div>
+                        {% else %}
+                            {{ form.username(class="form-control form-control-lg") }}
+                        {% endif %}
+                    </div>
+                    <div class="form-group">
+                        {{ form.email.label(class="form-control-label") }}
+                        {% if form.email.errors %}
+                            {{ form.email(class="form-control form-control-lg is-invalid") }}
+                            <div class="invalid-feedback">
+                                {% for error in form.email.errors %}
+                                    <span>{{ error }}</span>
+                                {% endfor %}
+                            </div>
+                        {% else %}
+                            {{ form.email(class="form-control form-control-lg") }}
+                        {% endif %}
+                    </div>
+                    <div class="form-group">
+                        {{ form.picture.label() }}
+                        {{ form.picture(class="form-control-file") }}
+                        {% if form.picture.errors %}
+                            {% for error in form.picture.errors %}
+                                <span class="text-danger">{{ error }}</span></br>
+                            {% endfor %}
+                        {% endif %}
+                    </div>
+                </fieldset>
+                <div class="form-group" id="submit_btn_container">
+                    {{ form.submit(class="btn btn-outline-info", id="submit_btn_id") }}
+                </div>
+                <div class="form-group" id="exit_btn_container">
+                    <a id="exit_btn" style="text-decoration: none;" class="btn btn-outline-info" href="{{ url_for('logout') }}" type="submit">Изход</a>
+                </div>
+            </form>
+        </div>
+    </div>
+{% endblock %}

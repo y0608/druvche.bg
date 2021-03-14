@@ -1,0 +1,72 @@
+{% extends "base.html" %}
+{% block head %}
+<link rel="stylesheet" href="{{ url_for('static', filename='styles/login.css') }}">
+{% endblock %}
+{% block body %}
+    <form method="POST" action="" style="width:80%;">
+        {{ form.hidden_tag() }}
+        <legend>Регистрация</legend>
+        <legend id="home_legend"><a href="{{ url_for('home') }}" style="text-decoration: none; color: white;">Начало</a></legend>
+        <div class="info_container">
+            <div>
+                {{ form.username.label(class="form-control-label") }}
+    
+                {% if form.username.errors %}
+                    {{ form.username(class="form-control") }}
+                    <div>
+                        {% for error in form.username.errors %}
+                            <span>{{ error }}</span>
+                        {% endfor %}
+                    </div>
+                {% else %}
+                    {{ form.username(class="form-control") }}
+                {% endif %}
+            </div>
+            <div>
+                {{ form.email.label(class="form-control-label") }}
+                {% if form.email.errors %}
+                    {{ form.email(class="form-control") }}
+                    <div>
+                        {% for error in form.email.errors %}
+                            <span>{{ error }}</span>
+                        {% endfor %}
+                    </div>
+                {% else %}
+                    {{ form.email(class="form-control") }}
+                {% endif %}
+            </div>
+            <div>
+                {{ form.password.label(class="form-control-label") }}
+                {% if form.password.errors %}
+                    {{ form.password(class="form-control") }}
+                    <div>
+                        {% for error in form.password.errors %}
+                            <span>{{ error }}</span>
+                        {% endfor %}
+                    </div>
+                {% else %}
+                    {{ form.password(class="form-control") }}
+                {% endif %}
+            </div>
+            <div>
+                {{ form.confirm_password.label(class="form-control-label") }}
+                {% if form.confirm_password.errors %}
+                    {{ form.confirm_password(class="form-control") }}
+                    <div>
+                        {% for error in form.confirm_password.errors %}
+                            <span>{{ error }}</span>
+                        {% endfor %}
+                    </div>
+                {% else %}
+                    {{ form.confirm_password(class="form-control") }}
+                {% endif %}
+            </div>
+            {{ form.submit(class="btn btn-outline-info") }}
+            <div>
+                <small>
+                    Вече имате акаунт? <a class="ml-2" href="{{ url_for('login') }}">Влезте</a>
+                </small>
+            </div>
+        </div>
+    </form>
+{% endblock %}

@@ -1,0 +1,33 @@
+{% extends 'base.html' %}
+{% block head %}
+<link rel="stylesheet" href="{{ url_for('static', filename='styles/mainpage.css') }}">
+<link rel="stylesheet" href="{{ url_for('static', filename='styles/table.css') }}">
+{% endblock %}
+{% block body %}
+<nav style="z-index: 1000;">
+    <h1>Класация</h1>
+     <input id="toggle" type="checkbox" checked>
+  <ul>
+    <li><a href="{{ url_for( 'home' ) }}">Начало</a></li>
+    <li><a href="{{ url_for( 'add_sapling' ) }}">Добави своето дръвче</a></li>
+    <li><a href="#">Моите дръвчета</a></li>
+    <li><a href="{{ url_for( 'login' ) }}">Моят Акаунт</a></li>
+  </ul>
+</nav>
+<div class="container">
+  <table class="table">
+    <tr class="table__header">
+      {% for header in headings %}
+      <th class="table__cell">{{ header }}</th>
+      {% endfor %}
+    </tr>
+    {% for row in data %}
+    <tr class="table__row">
+      {% for cell in row %}
+      <td class="table__cell">{{ cell }}</td>
+      {% endfor %}
+    </tr>
+    {% endfor %}
+  </table>
+</div>
+{% endblock %}

@@ -1,0 +1,23 @@
+{% extends 'base.html' %}
+
+{% block head %}
+<link rel="stylesheet" href="{{ url_for('static', filename='styles/mainpage.css') }}">
+{% endblock %}
+
+{% block body %}
+<nav style="z-index: 1000;">
+    <h1>druvche.bg</h1>
+     <input id="toggle" type="checkbox" checked>
+  <ul>
+    <li><a href="{{ url_for( 'add_sapling' ) }}">Добави своето дръвче</a></li>
+    <li><a href="{{ url_for( 'scoreboard' ) }}">Класация</a></li>
+    <li><a href="{{ url_for( 'my_trees' ) }}">Моите дръвчета</a></li>
+    <li><a href="{{ url_for( 'login' ) }}">Моят Акаунт</a></li>
+  </ul>
+</nav>
+<div class="main_container">
+    <div class="card" id="map">
+        {% include "map.html" %}
+    </div>
+</div>
+{% endblock %}
