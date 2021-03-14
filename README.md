@@ -9,7 +9,7 @@
 
 
 # Билиотеки
-  flask<br />
+  [flask](https://palletsprojects.com/p/flask/)<br />
   wtforms <br />
   folium<br />
   pillow<br />
