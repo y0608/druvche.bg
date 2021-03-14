@@ -9,9 +9,11 @@
 
 
 # Билиотеки
-  [flask](https://palletsprojects.com/p/flask/)<br />
-  wtforms <br />
-  folium<br />
-  pillow<br />
-  smtplib<br />
+  flask </br>
+  flask-wtf </br>
+  flask-login </br>
+  flask-bcrypt </br>
+  pillow </br>
+  email-validator </br>
+  folium</br>
 
