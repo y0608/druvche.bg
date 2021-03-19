@@ -11,7 +11,7 @@
 Браян, Бурак, Виктор, Искрен, Йоан
 
 # Билиотеки
-[flask] (https://flask.palletsprojects.com/en/1.1.x/)<br>
-[pillow] (https://pypi.org/project/Pillow/)<br>
-[email-validator] (https://pypi.org/project/email-validator/)<br>
-[folium] (https://pypi.org/project/folium/)<br>
+[flask](https://flask.palletsprojects.com/en/1.1.x/)<br>
+[pillow](https://pypi.org/project/Pillow/)<br>
+[email-validator](https://pypi.org/project/email-validator/)<br>
+[folium](https://pypi.org/project/folium/)<br>
